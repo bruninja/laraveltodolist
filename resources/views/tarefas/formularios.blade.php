@@ -4,7 +4,8 @@
 
 <h1>Novo produto</h1>
 
-<form role="form" action="/tarefas/adiciona">
+<form role="form" action="/tarefas/adicionado" method="post">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <div class="form-group">
     <label for="tarefa">Tarefa:</label>
     <input type="text" class="form-control" name="tarefa">

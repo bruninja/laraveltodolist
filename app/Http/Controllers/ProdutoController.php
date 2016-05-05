@@ -37,6 +37,6 @@ class ProdutoController extends Controller
       DB::insert('INSERT INTO produtos(tarefa,descricao,status) VALUES (?,?,?)', array($tarefa, $descricao, $status));
 
       // retornar alguma view
-      return view ('tarefas.adicionado');
+      return view ('tarefas.adicionado')->with('tarefa',$tarefa);
     }
 }

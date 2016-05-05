@@ -20,4 +20,4 @@ Route::get('/tarefas', 'ProdutoController@lista');
 Route::get('/tarefas/mostra/{id}', 'ProdutoController@mostra')->where('id','[0-9]+');
 Route::get('/tarefas/novo', 'ProdutoController@novo');
 Route::get('/tarefas/adiciona', 'ProdutoController@adiciona');
-Route::get('/tarefas/adicionado', 'ProdutoController@adiciona');
+Route::post('/tarefas/adicionado', 'ProdutoController@adiciona');
