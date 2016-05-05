@@ -16,8 +16,8 @@ Route::get('/',function()
   return 'rota raiz' ;
 });
 
-Route::get('/produtos', 'ProdutoController@lista');
-Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id','[0-9]+');
-
-//
-// Route::controller('/produtos','ProdutoController');
+Route::get('/tarefas', 'ProdutoController@lista');
+Route::get('/tarefas/mostra/{id}', 'ProdutoController@mostra')->where('id','[0-9]+');
+Route::get('/tarefas/novo', 'ProdutoController@novo');
+Route::get('/tarefas/adiciona', 'ProdutoController@adiciona');
+Route::get('/tarefas/adicionado', 'ProdutoController@adiciona');
