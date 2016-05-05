@@ -32,21 +32,33 @@ class ProdutoTableSeeder extends Seeder
     // $produto1->save();
 
     DB::insert('insert into produtos
-    (nome, quantidade, valor, descricao)
-    values (?,?,?,?)',
-    array('Geladeira', 2, 5900.0,
-    'Side by Side com gelo na porta'));
+    (tarefa, descricao, status)
+    values (?,?,?)',
+    array('Estudar Laravel', 'Estudar laravel até sacar fazer um crud', 'Em Andamento'));
 
-    \DB::insert('insert into produtos
-    (nome, quantidade, valor, descricao)
-    values (?,?,?,?)',
-    array('Fogão', 5, 950.00,
-    'Painel automático e forno elérico'));
+    DB::insert('insert into produtos
+    (tarefa, descricao, status)
+    values (?,?,?)',
+    array('Estudar Ionic', 'Estudar Ionic e comunicação com Apis', 'Em Andamento'));
 
-    \DB::insert('insert into produtos
-    (nome, quantidade, valor, descricao)
-    values (?,?,?,?)',
-    array('Microondas', 1, 1520.00,
-    'Manda SMS qual termina de esquentar'));
+    DB::insert('insert into produtos
+    (tarefa, descricao, status)
+    values (?,?,?)',
+    array('Criar crud com Laravel', 'Implementar aplicação com laravel utilizando as opções de CRUD básicas', 'Concluído'));
+
+    DB::insert('insert into produtos
+    (tarefa, descricao, status)
+    values (?,?,?)',
+    array('Sass', 'Implementar aplicação com laravel utilizando as opções de CRUD básicas', 'Em Andamento'));
+
+    DB::insert('insert into produtos
+    (tarefa, descricao, status)
+    values (?,?,?)',
+    array('Jogar Bola', 'Jogar Futebol e fazer Gol', 'Concluído'));
+
+    DB::insert('insert into produtos
+    (tarefa, descricao, status)
+    values (?,?,?)',
+    array('Outra Tarefa', 'Implementar aplicação com laravel utilizando as opções de CRUD básicas', 'Concluído'));
   }
 }
