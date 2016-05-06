@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<h1>Novo produto</h1>
+<h1>Nova Tarefa</h1>
 
 <form role="form" action="/tarefas/adicionado" method="post">
   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
