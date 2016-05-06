@@ -14,7 +14,7 @@
               <a class="navbar-brand" href="#">Todo List 1.0</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/tarefas">Tarefas</a></li>
+              <li><a href="/">Tarefas</a></li>
               <li><a href="/tarefas/novo">Adicionar</a></li>
             </ul>
           </div>

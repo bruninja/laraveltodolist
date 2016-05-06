@@ -2,25 +2,29 @@
 
 namespace estoque\Http\Controllers;
 
-use Request;
-
 use Illuminate\Support\Facades\DB;
+use estoque\Produto;
+use Request;
 
 class ProdutoController extends Controller
 {
     public function lista(){
-      $produtos = DB::select('select * from produtos');
+      $produtos = Produto::all();
 
       return view('tarefas.listagem')->with('produtos', $produtos);
     }
 
+    public function listaJson(){
+      $produtos = Produto::all;
+      return response()->json($produtos);
+    }
+
     public function mostra($id){
-      // $id = Request::route('id');
-      $resposta = DB::select('SELECT * FROM produtos WHERE id = ?', [$id]);
+      $resposta = Produto::find($id);
       if (empty($resposta)) {
         return "Esta tarefa não existe";
       }
-      return view('tarefas.detalhes')->with('p',$resposta[0]);
+      return view('tarefas.detalhes')->with('p',$resposta);
     }
 
     public function novo(){
@@ -29,14 +33,21 @@ class ProdutoController extends Controller
 
     public function adiciona(){
       // pegar dados do formulário
-      $tarefa = Request::input('tarefa');
-      $descricao = Request::input('descricao');
-      $status = Request::input('status');
-
       // salvar no banco de dados
-      DB::insert('INSERT INTO produtos(tarefa,descricao,status) VALUES (?,?,?)', array($tarefa, $descricao, $status));
+      Produto::create(Request::all());
 
       // retornar alguma view
-      return view ('tarefas.adicionado')->with('tarefa',$tarefa);
+      return redirect()
+        ->action('ProdutoController@lista')
+        ->withInput(Request::only('tarefa'));
     }
+
+    public function remove($id){
+      $tarefa = Produto::find($id);
+      $tarefa->delete();
+      return redirect()->action('ProdutoController@lista');
+    }
+
+
+
 }

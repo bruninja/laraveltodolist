@@ -27,17 +27,19 @@
             <a class="btn btn-success" href="">
               <span class="glyphicon glyphicon-refresh col-md-2"></span>
             </a>
-            <a class="btn btn-danger" href="">
-              <span class="glyphicon glyphicon-remove col-md-2"></span>
+            <a class="btn btn-danger" href="{{action('ProdutoController@remove', $p->id)}}">
+              <span class="glyphicon glyphicon-trash col-md-2"></span>
             </a>
         </td>
       </tr>
     @endforeach
     </table>
   @endif
-  <h4>
-    <span class="label label-danger pull right">
-      Alguma informação aqui.
-    </span>
-  </h4>
+
+  @if(old('tarefa'))
+    <div class="alert alert-success">
+        A Tarefa <b>"{{ old('tarefa') }}"</b> foi adionada com <strong>sucesso!</strong>
+    </div>
+  @endif
+
 @stop
